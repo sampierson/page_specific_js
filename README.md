@@ -44,14 +44,6 @@ Installation
 
         %body{ :'data-controller_name' => underscored_controller_name, :'data-action_name' => action_name }
 
-    and in app/helpers/application_helper.rb add:
-
-        module ApplicationHelper
-         def underscored_controller_name
-            controller.class.name.underscore.gsub('/', '_')
-          end
-        end
-
 Usage
 -----
 
