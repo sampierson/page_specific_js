@@ -14,7 +14,7 @@ Dependencies
 Installation
 ------------
 
-1.  Require the gem. Add the following to your Gemfile, then run 'bundle install':
+1.  Require the gem. Add the following to your Gemfile, then run `bundle`:
 
         gem 'page_specific_js'
 
