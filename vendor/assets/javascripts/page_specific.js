@@ -52,7 +52,7 @@ PageSpecific = {
   },
 
   camelize: function(str, lowerFirstChar) {
-    var newStr = str.replace(/_(.)/g, function(match, firstChar) {
+    var newStr = str.replace(/[_-](.)/g, function(match, firstChar) {
       return firstChar.toUpperCase();
     });
     if (lowerFirstChar) {

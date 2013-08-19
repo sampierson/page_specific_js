@@ -26,6 +26,9 @@ DummyApplication = {
       allActions: function() {},
       someactionAction: function() {
         console.debug('someactionAction was called');
+      },
+      dashedActionAction: function() {
+        // should be invoked for action "dashed-action"
       }
     }
   }
@@ -155,6 +158,19 @@ describe("PageSpecific", function() {
       spyOn(DummyApplication.PageSpecific.TestTwoController, 'someactionAction');
       PageSpecific.init(DummyApplication);
       expect(DummyApplication.PageSpecific.TestTwoController.someactionAction).toHaveBeenCalled();
+    });
+  });
+
+  describe("when the action has a dash in it", function() {
+    beforeEach(function() {
+      $('body').attr('data-controller_name', 'test_two_controller');
+      $('body').attr('data-action_name', 'dashed-action');
+    });
+
+    it("should convert the dashed action to camelcase and call the controller+action specific method", function() {
+      spyOn(DummyApplication.PageSpecific.TestTwoController, 'dashedActionAction');
+      PageSpecific.init(DummyApplication);
+      expect(DummyApplication.PageSpecific.TestTwoController.dashedActionAction).toHaveBeenCalled();
     });
   });
 });
